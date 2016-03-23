@@ -50,6 +50,7 @@
             </div>
         </div>
     </div>
+
 </section><!-- /#more-pages.section -->
 
 <%@include file="footer.jsp"%>
