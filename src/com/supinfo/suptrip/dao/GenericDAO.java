@@ -2,6 +2,7 @@ package com.supinfo.suptrip.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import java.util.List;
 
 /**
@@ -27,4 +28,20 @@ public interface GenericDAO {
     }
     List read();
     void delete(Long idin);
+
+    default void saveUpdateChange(EntityManager em , Query query, EntityTransaction entityTransaction)
+    {
+        try
+        {
+            //   em.persist(thisUser);
+            entityTransaction.begin();
+            query.executeUpdate();
+            entityTransaction.commit();
+        }
+        finally
+        {
+            if (entityTransaction.isActive()) entityTransaction.rollback();
+            em.close();
+        }
+    }
 }
