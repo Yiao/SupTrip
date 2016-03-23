@@ -44,7 +44,7 @@ public class AddToPanelServlet extends HttpServlet {
         //update la table Trip
         myReservationDAO.addReservation(thisUser,thisTrip);
        // MyTripDAO.updateTrip(thisUser,thisTrip);
-        response.sendRedirect("/results.jsp");
+        response.sendRedirect("/auth/myTravels");
 
     }
 }

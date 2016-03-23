@@ -1,6 +1,7 @@
 package com.supinfo.suptrip.dao;
 
 import com.supinfo.suptrip.entity.Campus;
+import com.supinfo.suptrip.entity.Reservation;
 import com.supinfo.suptrip.entity.User;
 
 import javax.persistence.EntityManager;

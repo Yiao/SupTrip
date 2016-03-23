@@ -1,8 +1,7 @@
 package com.supinfo.suptrip.servlet;
 
-import com.supinfo.suptrip.dao.TripDAO;
+import com.supinfo.suptrip.dao.ReservationDAO;
 import com.supinfo.suptrip.dao.UserDAO;
-import com.supinfo.suptrip.entity.Trip;
 import com.supinfo.suptrip.entity.User;
 
 import javax.servlet.ServletException;
@@ -14,10 +13,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-/**
- * Created by sya on 3/20/2016.
- */
-
 
 @WebServlet(name = "MyTravelsServlet", urlPatterns = "/auth/myTravels")
 public class MyTravelsServlet extends HttpServlet {
@@ -26,16 +21,16 @@ public class MyTravelsServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        TripDAO tripDAO = new TripDAO();
+        ReservationDAO reservationDAO =new ReservationDAO();
         UserDAO userDAO =new UserDAO();
         User myUser =new User();
         //chercher lutilisateur
         HttpSession session = request.getSession();
         String account  = (String) session.getAttribute("account");
         //recuperer les voyages de lutilisateur
-        myUser = userDAO.search(account);
-       // List listTrip = tripDAO.searchMyTripsList(myUser.getIdUser());
-       // request.setAttribute("myListTrip",listTrip);
+         myUser = userDAO.search(account);
+        List myReservations =reservationDAO.getMyReservations(myUser.getIdUser());
+        request.setAttribute("myReservationPanel",myReservations);
         this.getServletContext().getRequestDispatcher("/myTravels.jsp").forward(request, response);
     }
 }

@@ -1,4 +1,6 @@
-<%@ page import="com.supinfo.suptrip.entity.Trip" %><%--
+<%@ page import="com.supinfo.suptrip.entity.Trip" %>
+<%@ page import="com.supinfo.suptrip.entity.Reservation" %>
+<%--
   Created by IntelliJ IDEA.
  User: Khalil
   Date: 19/03/2016
@@ -29,16 +31,16 @@
 
                     <%
                         @SuppressWarnings("unchecked")
-                        List<Trip> myTripList = (List<Trip>)request.getAttribute("myListTrip");
-                        for(final Trip myTripResult :myTripList)
+                        List<Reservation> myReservationPanel = (List<Reservation>)request.getAttribute("myReservationPanel");
+                        for(final Reservation reservation :myReservationPanel)
                         {
                             out.print("<div class=\"col-sm-12\" >" +
                                     " <div class=\"box-block\">"+" <div class=\"media\">"+"<a class=\"media-object pull-left\" href=\"#\"><img class=\"responsive-image\" src=\"/images/content/featured-tour-1.png\" alt=\"\"/></a>"
                                     +" <div class=\"media-action pull-right\">"+"<span class=\"pr" +
-                                    "ice\"><small>Per Seat</small> $"+myTripResult.getPrice()+"<br/><a href=\"/auth/suppFromPanel?thisTrip=" + myTripResult.getIdTrip()+ "\" class=\"button mini\">Supp</a>"+
-                                    "</div>"+"<p>Departure: "+ myTripResult.getDepartureCampus() +"</p>"+"<div class=\"media-body\" >"+
-                                    "<div class=\"media-body\" >"+"<form action=\"SearchTrip\" method=\"post\">"+" <h3 class=\"media-heading\">destination :"+myTripResult.getArrivalCampus()+"</h3>"+
-                                    "*Transport :"+myTripResult.getTransport() + "</p>"+" </div>"+" </div>"+" </div>"+" </div>"+" </div>");
+                                    "ice\"><small>Per Seat</small> $"+reservation.getTrip().getPrice()+"<br/><a href=\"/auth/suppFromPanel?thisReservation=" + reservation.getIdReservation()+ "\" class=\"button mini\">Supp</a>"+
+                                    "</div>"+"<p>Departure: "+ reservation.getTrip().getDepartureCampus() +"</p>"+"<div class=\"media-body\" >"+
+                                    "<div class=\"media-body\" >"+"<form action=\"SearchTrip\" method=\"post\">"+" <h3 class=\"media-heading\">destination :"+reservation.getTrip().getArrivalCampus()+"</h3>"+
+                                    "*Transport :"+reservation.getTrip().getTransport() + "</p>"+" </div>"+" </div>"+" </div>"+" </div>"+" </div>");
                         }
                     %>
                 </div>
