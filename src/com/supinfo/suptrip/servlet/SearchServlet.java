@@ -16,15 +16,12 @@ import java.util.List;
  */
 @WebServlet(name = "SearchServlet",urlPatterns ="/SearchTrip")
 public class SearchServlet extends HttpServlet {
-
-    TripDAO MyTripDAO = new TripDAO();
-    Trip MyTrip =new Trip();
-    String campusDeparture="";
-    String campusDestination="";
-
-
-
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        TripDAO MyTripDAO = new TripDAO();
+        Trip MyTrip =new Trip();
+        String campusDeparture="";
+        String campusDestination="";
+
         HttpServletRequest httpRequest = (HttpServletRequest) request;
 
         // recherche rentré par l'utilisateur

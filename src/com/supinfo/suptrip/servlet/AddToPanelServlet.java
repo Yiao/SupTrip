@@ -16,10 +16,6 @@ import java.io.IOException;
 @WebServlet(name = "AddToPanelServlet" ,urlPatterns = "/auth/AddToPanel")
 public class AddToPanelServlet extends HttpServlet {
 
-    TripDAO MyTripDAO = new TripDAO();
-    UserDAO myUserDAO = new UserDAO();
-    User thisUser = new User();
-
     //long idTrip;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -28,6 +24,12 @@ public class AddToPanelServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        TripDAO MyTripDAO = new TripDAO();
+        UserDAO myUserDAO = new UserDAO();
+        User thisUser = new User();
+
+
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         //associer une trip a un utilisateur
         //recuperer le voyage selectionné
@@ -38,7 +40,6 @@ public class AddToPanelServlet extends HttpServlet {
         thisUser= myUserDAO.search(myUserAccount);
         //update la table Trip
         MyTripDAO.updateTrip(thisUser,Long.valueOf(tripId));
-        response.sendRedirect("/results.jsp");
-
+        response.sendRedirect("/auth/myTravels");
     }
 }

@@ -20,28 +20,28 @@
 </section>
 
 <section id="more-pages" class="section wide-fat">
+    <div class="container">
+        <div class="row">
+            <div class="contents col-md-12 col-lg-12">
+                <div class="row box-row travel-essentials table-row">
+                    <%--Todo Remplacer par for et chercher les informations dans la database--%>
+                    <%-- a changer en jstl car l'affichage c moche comme ça  --%>
 
-    <div class="row">
-        <div class="contents col-md-12 col-lg-12">
-            <div class="row box-row travel-essentials table-row">
-                <%--Todo Remplacer par for et chercher les informations dans la database--%>
-
-                <%-- a changer en jstl car l'affichage c moche comme ça  --%>
-
-                <%
-                    @SuppressWarnings("unchecked")
-                    List<Trip> myTripList = (List<Trip>)request.getAttribute("myListTrip");
-                    for(final Trip myTripResult :myTripList)
-                    {
-                        out.print("<div class=\"col-sm-12\" >" +
-                                " <div class=\"box-block\">"+" <div class=\"media\">"+"<a class=\"media-object pull-left\" href=\"#\"><img class=\"responsive-image\" src=\"/images/content/featured-tour-1.png\" alt=\"\"/></a>"
-                                +" <div class=\"media-action pull-right\">"+"<span class=\"pr" +
-                                "ice\"><small>Per Seat</small> $"+myTripResult.getPrice()+"<a href=\"/auth/AddToPanel?thisTrip=" + myTripResult.getIdTrip()+ "\" class=\"button mini\">book</a>"+
-                                "</div>"+"<p>Departure: "+ myTripResult.getDepartureCampus() +"</p>"+"<div class=\"media-body\" >"+
-                                "<div class=\"media-body\" >"+"<form action=\"SearchTrip\" method=\"post\">"+" <h3 class=\"media-heading\">destination :"+myTripResult.getArrivalCampus()+"</h3>"+
-                                "*Transport :"+myTripResult.getTransport() + "</p>"+" </div>"+" </div>"+" </div>"+" </div>"+" </div>");
-                    }
-                %>
+                    <%
+                        @SuppressWarnings("unchecked")
+                        List<Trip> myTripList = (List<Trip>)request.getAttribute("myListTrip");
+                        for(final Trip myTripResult :myTripList)
+                        {
+                            out.print("<div class=\"col-sm-12\" >" +
+                                    " <div class=\"box-block\">"+" <div class=\"media\">"+"<a class=\"media-object pull-left\" href=\"#\"><img class=\"responsive-image\" src=\"/images/content/featured-tour-1.png\" alt=\"\"/></a>"
+                                    +" <div class=\"media-action pull-right\">"+"<span class=\"pr" +
+                                    "ice\"><small>Per Seat</small> $"+myTripResult.getPrice()+"<br/><a href=\"/auth/suppFromPanel?thisTrip=" + myTripResult.getIdTrip()+ "\" class=\"button mini\">Supp</a>"+
+                                    "</div>"+"<p>Departure: "+ myTripResult.getDepartureCampus() +"</p>"+"<div class=\"media-body\" >"+
+                                    "<div class=\"media-body\" >"+"<form action=\"SearchTrip\" method=\"post\">"+" <h3 class=\"media-heading\">destination :"+myTripResult.getArrivalCampus()+"</h3>"+
+                                    "*Transport :"+myTripResult.getTransport() + "</p>"+" </div>"+" </div>"+" </div>"+" </div>"+" </div>");
+                        }
+                    %>
+                </div>
             </div>
         </div>
     </div>

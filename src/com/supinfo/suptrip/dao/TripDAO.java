@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Created by User on 17/03/2016.
@@ -42,7 +43,7 @@ public class TripDAO implements GenericDAO {
     // lister les voyage selon compus de depart et campus d'arrivé
     public List<Trip> searchList(String arrivalCampus, String departureCampus)
     {
-        if (departureCampus =="")
+        if (Objects.equals(departureCampus, ""))
         {
             EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
             Query query = em.createQuery("SELECT trip from Trip AS trip where trip.arrivalCampus= :aCampus");
@@ -51,7 +52,7 @@ public class TripDAO implements GenericDAO {
             return tripList;
 
         }
-        else if(arrivalCampus=="")
+        else if(Objects.equals(arrivalCampus, ""))
         {
             EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
             Query query = em.createQuery("SELECT trip from Trip AS trip where trip.departureCampus= :dcampus");
@@ -104,6 +105,5 @@ public class TripDAO implements GenericDAO {
         query.setParameter("user",null);
         query.setParameter("tripID",tripID);
         saveUpdateChange(em,query,transaction);
-
     }
 }
