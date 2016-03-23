@@ -21,7 +21,6 @@ public class TripDAO implements GenericDAO {
         query.setParameter("tripNameSelected", s);
         return (Trip) query.getSingleResult();*/
         return null;
-
     }
 
     @Override
@@ -29,37 +28,33 @@ public class TripDAO implements GenericDAO {
         return null;
     }
     //chercher les voyages d'un utilisateur
-    public List<Trip> searchMyTripsList(Long idUser)
+    public List searchMyTripsList(Long idUser)
     {
         //
         EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
         Query query = em.createQuery("SELECT trip from Trip AS trip where trip.user.idUser = :userNameSelected ");
         query.setParameter("userNameSelected", idUser);
-        List<Trip> tripList = (List<Trip>) query.getResultList();
-        return tripList;
+        return query.getResultList();
+
     }
 
 
     // lister les voyage selon compus de depart et campus d'arrivé
-    public List<Trip> searchList(String arrivalCampus, String departureCampus)
+    public List searchList(String arrivalCampus, String departureCampus)
     {
         if (Objects.equals(departureCampus, ""))
         {
             EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
             Query query = em.createQuery("SELECT trip from Trip AS trip where trip.arrivalCampus= :aCampus");
             query.setParameter("aCampus",arrivalCampus);
-            List<Trip> tripList = (List<Trip>) query.getResultList();
-            return tripList;
-
+            return query.getResultList();
         }
         else if(Objects.equals(arrivalCampus, ""))
         {
             EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
             Query query = em.createQuery("SELECT trip from Trip AS trip where trip.departureCampus= :dcampus");
             query.setParameter("dcampus",departureCampus);
-            List<Trip> tripList = (List<Trip>) query.getResultList();
-            return tripList;
-
+            return query.getResultList();
         }
         else
         {
@@ -68,9 +63,7 @@ public class TripDAO implements GenericDAO {
             query.setParameter("aCampus",arrivalCampus);
             query.setParameter("dcampus",departureCampus);
 
-            List<Trip> tripList = (List<Trip>) query.getResultList();
-            return tripList;
-
+            return query.getResultList();
         }
 
 
