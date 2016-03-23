@@ -28,7 +28,7 @@ public class TripDAO implements GenericDAO {
         return null;
     }
     //chercher les voyages d'un utilisateur
-    public List searchMyTripsList(Long idUser)
+    public List<Trip> searchMyTripsList(Long idUser)
     {
         //
         EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
@@ -40,7 +40,7 @@ public class TripDAO implements GenericDAO {
 
 
     // lister les voyage selon compus de depart et campus d'arrivé
-    public  List searchList(String arrivalCampus, String departureCampus)
+    public List<Trip> searchList(String arrivalCampus, String departureCampus)
     {
         if (departureCampus =="")
         {
@@ -85,27 +85,25 @@ public class TripDAO implements GenericDAO {
     public void updateTrip (User thisUser,long tripID)
 
     {
-
-
-
         EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
         EntityTransaction t = em.getTransaction();
         Query query = em.createQuery("UPDATE Trip trip  SET trip.user = :user where trip.idTrip= :tripID ");
 
         query.setParameter("user",thisUser);
         query.setParameter("tripID",tripID);
-        try
-        {
-            //   em.persist(thisUser);
-            t.begin();
-            query.executeUpdate();
-            t.commit();
-        }
-        finally
-        {
-            if (t.isActive()) t.rollback();
-            em.close();
-        }
+
+        saveUpdateChange(em,query,t);
     }
 
+    public void suppTripFromUser(long tripID)
+    {
+        EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
+        EntityTransaction transaction = em.getTransaction();
+        Query query = em.createQuery("UPDATE Trip trip  SET trip.user = :user where trip.idTrip= :tripID ");
+
+        query.setParameter("user",null);
+        query.setParameter("tripID",tripID);
+        saveUpdateChange(em,query,transaction);
+
+    }
 }

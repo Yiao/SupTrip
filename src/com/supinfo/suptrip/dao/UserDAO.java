@@ -66,17 +66,7 @@ public class UserDAO implements GenericDAO{
         query.setParameter("userpassword",newpassword);
         query.setParameter("usercampusid",campusid);
 
-        try
-        {
-            t.begin();
-            query.executeUpdate();
-            t.commit();
-        }
-        finally
-        {
-            if (t.isActive()) t.rollback();
-            em.close();
-        }
+        saveUpdateChange(em,query,t);
     }
 
     @Override
