@@ -39,7 +39,7 @@
                                 "ice\"><small>Per Seat</small> $"+myTripResult.getPrice()+"<a href=\"/auth/AddToPanel?thisTrip=" + myTripResult.getIdTrip()+ "\" class=\"button mini\">book</a>"+
                                 "</div>"+"<p>Departure: "+ myTripResult.getDepartureCampus() +"</p>"+"<div class=\"media-body\" >"+
                                 "<div class=\"media-body\" >"+"<form action=\"SearchTrip\" method=\"post\">"+" <h3 class=\"media-heading\">destination :"+myTripResult.getArrivalCampus()+"</h3>"+
-                               "*Transport :"+myTripResult.getTransport() + "</p>"+" </div>"+" </div>"+" </div>"+" </div>"+" </div>");
+                                "*Transport :"+myTripResult.getTransport() + "</p>"+" </div>"+" </div>"+" </div>"+" </div>"+" </div>");
                     }
                 %>
             </div>
