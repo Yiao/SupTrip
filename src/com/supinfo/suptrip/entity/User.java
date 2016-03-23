@@ -22,9 +22,9 @@ public class User implements Serializable {
     // 1 campus * etudiants
     @ManyToOne
     private Campus campus;
-//    // 1 user * trips
+//    // 1 user * reservation
     @OneToMany(mappedBy = "user")
-   private List <Trip> userTrips;
+   private List <Reservation> userReservation;
 
 
     //getter setter

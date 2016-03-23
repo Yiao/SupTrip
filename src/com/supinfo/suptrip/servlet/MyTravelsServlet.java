@@ -34,8 +34,8 @@ public class MyTravelsServlet extends HttpServlet {
         String account  = (String) session.getAttribute("account");
         //recuperer les voyages de lutilisateur
         myUser = userDAO.search(account);
-        List listTrip = tripDAO.searchMyTripsList(myUser.getIdUser());
-        request.setAttribute("myListTrip",listTrip);
+       // List listTrip = tripDAO.searchMyTripsList(myUser.getIdUser());
+       // request.setAttribute("myListTrip",listTrip);
         this.getServletContext().getRequestDispatcher("/myTravels.jsp").forward(request, response);
     }
 }

@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by User on 17/03/2016.
@@ -15,12 +14,20 @@ import java.util.Objects;
 public class TripDAO implements GenericDAO {
     //lister un voyage selon campus d'arriveé
     @Override
-    public Object search(String s) {
+    public Trip search(String s) {
        /* EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
         Query query = em.createQuery("SELECT trip from Trip AS trip where trip.arrivalCampus = :tripNameSelected ");
         query.setParameter("tripNameSelected", s);
         return (Trip) query.getSingleResult();*/
         return null;
+
+    }
+    public Trip search(long idTrip)
+    {
+        EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
+        Query query = em.createQuery("SELECT trip from Trip AS trip where trip.id = :tripIdSelected ");
+        query.setParameter("tripIdSelected", idTrip);
+        return (Trip) query.getSingleResult();
     }
 
     @Override
@@ -28,33 +35,37 @@ public class TripDAO implements GenericDAO {
         return null;
     }
     //chercher les voyages d'un utilisateur
-    public List searchMyTripsList(Long idUser)
+   /* public List<Trip> searchMyTripsList(Long idUser)
     {
         //
         EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
         Query query = em.createQuery("SELECT trip from Trip AS trip where trip.user.idUser = :userNameSelected ");
         query.setParameter("userNameSelected", idUser);
-        return query.getResultList();
-
-    }
+        List<Trip> tripList = (List<Trip>) query.getResultList();
+        return tripList;
+    }*/
 
 
     // lister les voyage selon compus de depart et campus d'arrivé
-    public List searchList(String arrivalCampus, String departureCampus)
+    public List<Trip> searchList(String arrivalCampus, String departureCampus)
     {
-        if (Objects.equals(departureCampus, ""))
+        if (departureCampus =="")
         {
             EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
             Query query = em.createQuery("SELECT trip from Trip AS trip where trip.arrivalCampus= :aCampus");
             query.setParameter("aCampus",arrivalCampus);
-            return query.getResultList();
+            List<Trip> tripList = (List<Trip>) query.getResultList();
+            return tripList;
+
         }
-        else if(Objects.equals(arrivalCampus, ""))
+        else if(arrivalCampus=="")
         {
             EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
             Query query = em.createQuery("SELECT trip from Trip AS trip where trip.departureCampus= :dcampus");
             query.setParameter("dcampus",departureCampus);
-            return query.getResultList();
+            List<Trip> tripList = (List<Trip>) query.getResultList();
+            return tripList;
+
         }
         else
         {
@@ -63,7 +74,9 @@ public class TripDAO implements GenericDAO {
             query.setParameter("aCampus",arrivalCampus);
             query.setParameter("dcampus",departureCampus);
 
-            return query.getResultList();
+            List<Trip> tripList = (List<Trip>) query.getResultList();
+            return tripList;
+
         }
 
 
@@ -98,5 +111,6 @@ public class TripDAO implements GenericDAO {
         query.setParameter("user",null);
         query.setParameter("tripID",tripID);
         saveUpdateChange(em,query,transaction);
+
     }
 }

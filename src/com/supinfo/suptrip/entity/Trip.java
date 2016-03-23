@@ -1,6 +1,7 @@
 package com.supinfo.suptrip.entity;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.*;
 
 /**
@@ -28,16 +29,27 @@ public class Trip implements Serializable {
     private String transport;
 
 
-
     // * trips 1 campus
     @ManyToOne
     private Campus campus;
-    //1 user * trip
-    @ManyToOne
-    private  User user;
+
+
+    //1 trip * reservation
+    @OneToMany(mappedBy = "trip")
+    private List<Reservation> userReservation;
 
 
     //getter setter
+
+    public List<Reservation> getUserReservation() {
+        return userReservation;
+    }
+
+    public void setUserReservation(List<Reservation> userReservation) {
+        this.userReservation = userReservation;
+    }
+
+
     public String getTransport() {
         return transport;
     }
@@ -46,13 +58,7 @@ public class Trip implements Serializable {
         this.transport = transport;
     }
 
-    public User getUser() {
-        return user;
-    }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public int getPrice() {
         return price;
