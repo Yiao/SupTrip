@@ -29,13 +29,19 @@
 
           <li>
 
-            <img src="images/content/feature-img.jpg" alt="Featured Image" />
+            <img src="images/content/Paris.jpg" alt="Featured Image" />
 
           </li>
 
           <li>
 
-            <img src="images/content/feature-img.jpg" alt="Featured Image" />
+            <img src="images/content/Beijing.jpg" alt="Featured Image" />
+
+          </li>
+
+          <li>
+
+            <img src="images/content/NewYoc.jpg" alt="Featured Image" />
 
           </li>
 
@@ -101,7 +107,7 @@
 
               <h2>Wonderful Feelings</h2>
 
-              <p>Proin faucibus malesuada dui, ut porta arcu pretium consequat. Ut iaculis dui at gravida vehicula. Donec malesuada suscipit sem sit amet pulvinar....</p>
+              <p>From east to west in a click</p>
             </div><!-- /.featured-teaser-text -->
 
             <div class="social-networks">
