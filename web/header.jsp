@@ -200,11 +200,14 @@
 
                         <select class="top-drop-menu nav visible-sm visible-xs visible-md">
 
+                            <optgroup  label="Welcome">
+                                <option value="#" style="visibility: hidden;">
+                                    Welcome to our site
+                                </option>
                             </optgroup>
-
                             <optgroup  label="My Travel">
 
-                                <option value="destinations.html">
+                                <option value="/auth/myTravels">
                                     My Travel
                                 </option>
 
@@ -212,16 +215,16 @@
 
                             <optgroup label="Destinations">
 
-                                <option value="destinations.html">
+                                <option value="/destination">
                                     Destinations
                                 </option>
 
                             </optgroup>
 
-                            <optgroup label="My Travels">
+                            <optgroup label="Account">
 
-                                <option value="our-travel.html">
-                                    Our Travel
+                                <option value="/auth/editePofil">
+                                    Account
                                 </option>
 
                             </optgroup>

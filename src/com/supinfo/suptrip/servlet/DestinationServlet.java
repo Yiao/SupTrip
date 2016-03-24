@@ -17,17 +17,18 @@ import java.util.List;
 @WebServlet(name = "DestinationServlet",urlPatterns = "/destination")
 public class DestinationServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        TripDAO tripDAO = new TripDAO();
+        String destinationSelected = (String) request.getParameter("campusDestination");
+        List listTrips = tripDAO.searchList(destinationSelected,"");
 
+        request.setAttribute("listTrips", listTrips);
+
+        this.getServletContext().getRequestDispatcher("/destination.jsp").forward(request, response);
 
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        TripDAO tripDAO = new TripDAO();
-        List listTrips = tripDAO.read();
-
-        request.setAttribute("listTrips", listTrips);
-
-        this.getServletContext().getRequestDispatcher("/destination.jsp").forward(request, response);
+        response.sendRedirect("/destination.jsp");
     }
 }
