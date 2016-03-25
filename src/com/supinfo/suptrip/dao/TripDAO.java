@@ -15,11 +15,12 @@ public class TripDAO implements GenericDAO {
     //lister un voyage selon campus d'arriveé
     @Override
     public Trip search(String s) {
-       /* EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
+        /*EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
         Query query = em.createQuery("SELECT trip from Trip AS trip where trip.arrivalCampus = :tripNameSelected ");
         query.setParameter("tripNameSelected", s);
         return (Trip) query.getSingleResult();*/
-        return null;
+        return  null;
+
 
     }
     public Trip search(long idTrip)
@@ -34,16 +35,16 @@ public class TripDAO implements GenericDAO {
     public List read() {
         return null;
     }
-    //chercher les voyages d'un utilisateur
-   /* public List<Trip> searchMyTripsList(Long idUser)
+    //chercher les voyages d'un compus darrivé
+    public List<Trip> searchMyTripsList(String arrivalCampus)
     {
         //
         EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
-        Query query = em.createQuery("SELECT trip from Trip AS trip where trip.user.idUser = :userNameSelected ");
-        query.setParameter("userNameSelected", idUser);
+        Query query = em.createQuery("SELECT trip from Trip AS trip where trip.arrivalCampus = :arrivalCampus ");
+        query.setParameter("arrivalCampus", arrivalCampus);
         List<Trip> tripList = (List<Trip>) query.getResultList();
         return tripList;
-    }*/
+    }
 
 
     // lister les voyage selon compus de depart et campus d'arrivé
@@ -92,25 +93,25 @@ public class TripDAO implements GenericDAO {
     public void updateTrip (User thisUser,long tripID)
 
     {
-        EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
+       /* EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
         EntityTransaction t = em.getTransaction();
         Query query = em.createQuery("UPDATE Trip trip  SET trip.user = :user where trip.idTrip= :tripID ");
 
         query.setParameter("user",thisUser);
         query.setParameter("tripID",tripID);
 
-        saveUpdateChange(em,query,t);
+        saveUpdateChange(em,query,t);*/
     }
 
     public void suppTripFromUser(long tripID)
     {
-        EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
+       /* EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
         EntityTransaction transaction = em.getTransaction();
         Query query = em.createQuery("UPDATE Trip trip  SET trip.user = :user where trip.idTrip= :tripID ");
 
         query.setParameter("user",null);
         query.setParameter("tripID",tripID);
-        saveUpdateChange(em,query,transaction);
+        saveUpdateChange(em,query,transaction);*/
 
     }
 }

@@ -1,3 +1,4 @@
+<%@ page import="com.supinfo.suptrip.dao.CreateMyTrips" %>
 <%--
   Created by IntelliJ IDEA.
   User: sya
@@ -11,7 +12,9 @@
 
 <section id="featured" class="wide-fat">
 
-
+<%
+  CreateMyTrips.insertMyCampus();
+%>
 
   <div class="featured-inner">
 
@@ -80,13 +83,14 @@
                 <div class="destination-field">
                   <%--depart--%>
                   <label for="departure">Choose Your departure</label><br />
-
                   <input id="departure" name="departure" type="text" />
+                </div>
                     <%--destination--%>
-
+              <div class="destination-field">
                   <label for="destination" >Choose Your Destination</label><br />
-
                   <input id="destination" name="destination" type="text" />
+              </div>
+
 
                 </div>
 

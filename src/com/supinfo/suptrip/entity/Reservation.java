@@ -3,7 +3,7 @@ package com.supinfo.suptrip.entity;
 import java.io.Serializable;
 import javax.persistence.*;
 
-import java.util.List;
+
 /**
  * Created by User on 23/03/2016.
  */
