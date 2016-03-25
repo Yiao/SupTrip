@@ -1,6 +1,7 @@
 <%@ page import="com.supinfo.suptrip.dao.CampusDAO" %>
 <%@ page import="com.supinfo.suptrip.entity.Campus" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.supinfo.suptrip.dao.UserDAO" %>
 <%--
   Created by IntelliJ IDEA.
   User: sya
@@ -182,9 +183,11 @@
                                     account = (String) sessionIn.getAttribute("account");
                                     if (account!=""&&account!=null)
                                     {
+                                        UserDAO userDAO =new UserDAO();
+
                                         out.println(
                                                 "<li class=\"menu-item contact\">"
-                                                        +"<a class=\"dropdown-toggle\" href=\"/auth/editePofil\"><i class=\"icon_contacts\"></i> HELLO " +account+"</a>\n" + "</li>");
+                                                        +"<a class=\"dropdown-toggle\" href=\"/auth/editePofil\"><i class=\"icon_contacts\"></i> HELLO " +userDAO.search(account).getFirstName()+"</a>\n" + "</li>");
                                     }
                                     else
                                     {

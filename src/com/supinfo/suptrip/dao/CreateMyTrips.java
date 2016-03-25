@@ -55,7 +55,7 @@ public class CreateMyTrips {
             campusDAO.create(campus11);
 
             Campus campus12 = new Campus();
-            campus12.setName("Orléans");
+            campus12.setName("Orleans");
             campusDAO.create(campus12);
 
             Campus campus13 = new Campus();
@@ -99,7 +99,7 @@ public class CreateMyTrips {
             campusDAO.create(campus23);
 
             Campus campus24 = new Campus();
-            campus24.setName("Réunion");
+            campus24.setName("Reunion");
             campusDAO.create(campus24);
 
             Campus campus25 = new Campus();
@@ -147,7 +147,7 @@ public class CreateMyTrips {
             campusDAO.create(campus35);
 
             Campus campus36 = new Campus();
-            campus36.setName("Sénégal");
+            campus36.setName("Senegal");
             campusDAO.create(campus36);
 
             Campus campus37 = new Campus();
