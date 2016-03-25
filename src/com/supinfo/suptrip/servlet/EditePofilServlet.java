@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Created by sya on 3/11/2016.
@@ -34,9 +35,17 @@ public class EditePofilServlet extends HttpServlet {
         password = (String) sessionIn.getAttribute("password");
 
         firstname  = (String) request.getParameter("newFirstName");
-        lastname = (String) request.getParameter("newFirstName");
+        lastname = (String) request.getParameter("newLastName");
         newpassword = (String) request.getParameter("newPassword");
-        age = Integer.parseInt(request.getParameter("newAge"));
+        if (!Objects.equals(request.getParameter("newAge"), "")){
+
+            age = Integer.parseInt(request.getParameter("newAge"));
+        }
+        else
+        {
+            UserDAO userDAO = new UserDAO();
+            age = userDAO.search(account).getAge();
+        }
         email = (String) request.getParameter("newEmail");
         campus = (String) request.getParameter("newCampus");
         confirmpassword = (String) request.getParameter("newConfirmPassword");
