@@ -83,7 +83,7 @@
 
                 <div class="destination-field">
                   <%--depart--%>
-                  <label for="departure">Choose Your departure</label><br/>
+                  <label for="departure">Choose Your Departure</label><br/>
 
                   <input id="departure" name="departure" type="text" />
                     <%--destination--%>
