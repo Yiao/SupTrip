@@ -80,8 +80,13 @@ public class TripDAO implements GenericDAO {
 
         }
 
+    }
 
-
+    public long getTripNumber()
+    {
+        EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
+        Query query  = em.createQuery("SELECT tripsCollection FROM Trip AS tripsCollection");
+        return query.getResultList().size();
     }
 
     @Override

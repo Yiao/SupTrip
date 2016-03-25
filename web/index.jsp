@@ -1,5 +1,6 @@
-<%@ page import="com.supinfo.suptrip.dao.CreateMyTrips" %>
-<%--
+<%@ page import="com.supinfo.suptrip.dao.TripDAO" %>
+<%@ page import="com.supinfo.suptrip.dao.UserDAO" %>
+<%@ page import="com.supinfo.suptrip.dao.CreateMyTrips" %><%--
   Created by IntelliJ IDEA.
   User: sya
   Date: 3/10/2016
@@ -77,27 +78,29 @@
           <div class="featured-overlay-inner">
 
 <%-- send info tosearchservlet !!!!!!!!!!!!!!!!!!!!! --%>
-            <form class="location-search"  method="post"  action="SearchTrip">
+            <form class="location-search"  method="post"  action="/auth/SearchTrip">
               <div class="search-field">
 
                 <div class="destination-field">
                   <%--depart--%>
-                  <label for="departure">Choose Your departure</label><br />
+                  <label for="departure">Choose Your departure</label><br/>
+
                   <input id="departure" name="departure" type="text" />
-                </div>
                     <%--destination--%>
-              <div class="destination-field">
-                  <label for="destination" >Choose Your Destination</label><br />
-                  <input id="destination" name="destination" type="text" />
-              </div>
+                </div>
+                <br/>
+                <div class="destination-field">
+                  <label for="destination" >Choose Your Destination</label><br/>
 
+                  <input id="destination" name="destination" type="text" />
 
                 </div>
+                <br/>
 
 
               <div class="search-field">
 
-               <a href="results.jsp"><input type="submit" class="button wide-fat" value="Search" /></a>
+                <input type="submit" class="button wide-fat" value="Search" />
 
               </div><!-- /.search-field -->
 
@@ -113,8 +116,10 @@
 
               <p>From east to west in a click</p>
               <%
-
-
+                TripDAO tmpTripdao = new TripDAO();
+                UserDAO tmpUserdao = new UserDAO();
+                out.print("<p>We had "+ tmpUserdao.getUserNomber() +" users who use our site</p>");
+                out.print("<p>We had "+ tmpTripdao.getTripNumber() +" trips between campus </p>");
               %>
               <p></p>
             </div><!-- /.featured-teaser-text -->

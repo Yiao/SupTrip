@@ -954,9 +954,6 @@ button.load-more:hover {
   background: #8bcf17;
   border-color: #8bcf17;
 }
-form.location-search label[for="destination"] {
-  font-size: 24px;
-}
 form.location-search #destination {
   background: #dfe7eb url('images/magnify.png') 97.5% 50% no-repeat;
 }

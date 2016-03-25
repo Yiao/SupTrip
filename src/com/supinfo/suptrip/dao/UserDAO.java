@@ -70,6 +70,14 @@ public class UserDAO implements GenericDAO{
         saveUpdateChange(em,query,t);
     }
 
+    public long getUserNomber()
+    {
+
+        EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
+        Query query  = em.createQuery("SELECT usersCollection FROM User AS usersCollection");
+        return query.getResultList().size();
+    }
+
     @Override
     public void delete(Long idin) {
 

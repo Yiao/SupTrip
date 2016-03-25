@@ -30,7 +30,7 @@
                                     out.print("<div class=\"col-sm-12\">");
 
 
-                                    out.print( " <div class=\"box-block\">"+" <div class=\"media\">"+"<a class=\"media-object pull-left\" href=\"#\"><img class=\"responsive-image\" src=\"images/content/featured-tour-1.png\" alt=\"\"/></a>");
+                                    out.print( " <div class=\"box-block\">"+" <div class=\"media\">"+"<a class=\"media-object pull-left\" href=\"#\"><img class=\"responsive-image\" src=\"/images/content/featured-tour-1.png\" alt=\"\"/></a>");
                                     out.print(" <div class=\"media-action pull-right\">" + "<span class=\"price\"><small>Per Seat </small> $" + myTripResult.getPrice() + "</span><br/>" + "<a href=\"/auth/AddToPanel?thisTrip=" + myTripResult.getIdTrip()+ "\" class=\"button mini\"> Book</a>");
                                     out.print("</div>" + "<p> Results to Trips Going From : " + "<strong>"+myTripResult.getDepartureCampus()+"</strong>" + "</p>" + "<div class=\"media-body\" >");
                                     out.print("<div class=\"media-body\" >");

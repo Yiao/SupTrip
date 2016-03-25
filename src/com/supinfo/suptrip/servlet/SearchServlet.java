@@ -14,7 +14,7 @@ import java.util.List;
 /**
  * Created by User on 17/03/2016.
  */
-@WebServlet(name = "SearchServlet",urlPatterns ="/SearchTrip")
+@WebServlet(name = "SearchServlet",urlPatterns ="/auth/SearchTrip")
 public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         TripDAO MyTripDAO = new TripDAO();
@@ -41,10 +41,6 @@ public class SearchServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpServletRequest httpRequest = (HttpServletRequest) request;
-
-
-
 
     }
 }
