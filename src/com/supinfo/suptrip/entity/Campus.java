@@ -15,9 +15,7 @@ public class Campus implements Serializable {
     @GeneratedValue( strategy = GenerationType.AUTO)
     private  long idCampus ;
     private String name;
-    private  String town;
-    private  String country;
-    private String continent;
+
 
  // 1 compus * etudiants
     @OneToMany(mappedBy = "campus")

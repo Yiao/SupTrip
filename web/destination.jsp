@@ -16,6 +16,7 @@
             <div class="contents col-md-12 col-lg-12">
                 <div class="row box-row travel-essentials table-row">
                     <form action = "destination" method="post">
+                        <h1>Destination :</h1>
                         <div class="col-md-11 col-lg-11 col-sm-12">
                             <SELECT id = "campus" name="campusDestination" size="1" placeholder="Campus"  class="form-control" style="">
                                 <%

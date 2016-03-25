@@ -49,10 +49,10 @@ function verificationPassword()
 function verificationAccount()
 {
     var account = document.getElementById("newaccount");
-    if(account.value.length<=6)
+    if(account.value.length<5)
     {
         account.style.borderColor = "red";
-        alert("CampusID should be 5 number");
+        alert("CampusID should be more than 5 number");
         account.value = "";
     }
     else

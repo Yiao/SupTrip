@@ -112,6 +112,11 @@
               <h2>Wonderful Feelings</h2>
 
               <p>From east to west in a click</p>
+              <%
+
+
+              %>
+              <p></p>
             </div><!-- /.featured-teaser-text -->
 
             <div class="social-networks">
