@@ -118,8 +118,8 @@
               <%
                 TripDAO tmpTripdao = new TripDAO();
                 UserDAO tmpUserdao = new UserDAO();
-                out.print("<p>We had <strong style=\"color:#f39c12;\"> "+ tmpUserdao.getUserNomber() +"</strong> users who use our site</p>");
-                out.print("<p>We had <strong style=\"color:#f39c12;\"> "+ tmpTripdao.getTripNumber() +"</strong> trips between campus </p>");
+                out.print("<p>We had <strong style=\"color:#b3c1c9;\"> "+ tmpUserdao.getUserNomber() +"</strong> users who use our site</p>");
+                out.print("<p>We had <strong style=\"color:#b3c1c9;\"> "+ tmpTripdao.getTripNumber() +"</strong> trips between campus </p>");
               %>
               <p></p>
             </div><!-- /.featured-teaser-text -->
