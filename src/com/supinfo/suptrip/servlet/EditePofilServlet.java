@@ -63,14 +63,12 @@ public class EditePofilServlet extends HttpServlet {
             }
             else
             {
-                request.setAttribute("errorConfirmWord","Not right with your password");
-                this.getServletContext().getRequestDispatcher("/pofile.jsp").forward(request, response);
+               response.sendRedirect("/errorPassword.jsp");
             }
         }
         else
         {
-            request.setAttribute("errorPassword","Password incorrect");
-            this.getServletContext().getRequestDispatcher("/pofile.jsp").forward(request, response);
+            response.sendRedirect("/errorPassword.jsp");
         }
 
 
