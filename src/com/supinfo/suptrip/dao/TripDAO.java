@@ -23,6 +23,7 @@ public class TripDAO implements GenericDAO {
 
 
     }
+
     public Trip search(long idTrip)
     {
         EntityManager em = PersistenceManager.getEntityManagerFactory().createEntityManager();
